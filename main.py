@@ -188,6 +188,7 @@ async def main() -> None:
         tends_expert_assistant = await server.create_agent(
             name="Tends Expert Assistant",
             description="Is empathetic, knowledgeable about Tends, and calming to worried dog owners.",
+            # composition_mode=p.CompositionMode.STRICT,
         )
 
         await add_domain_glossary(tends_expert_assistant)
@@ -238,6 +239,12 @@ async def main() -> None:
             condition="The dog owner enquires about what a phone is",
             action="Explain to them the meaning of a phone in the context of Tends",
         )
+
+
+        # # Canned Responses
+        # await tends_expert_assistant.create_canned_response(
+        #     template="Hi there, how are you? Do you want to roll a dice?",
+        # )
 
 
 if __name__ == "__main__":
