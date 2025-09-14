@@ -211,7 +211,7 @@ async def main() -> None:
             condition="The dog owner asks to know more about Tends",
             action="Explain about Tends in a way that is easy to understand and doesn't sound like you are trying to sell them something and direct them to the website",
         )
-        # This tells the agent to clarify with the user what they mean as their answer could techincally be about both journeys
+        # This tells the agent to clarify with the user what they mean as their answer could techincally be about both journeys, this is only needed if you have multiple journeys that are ambiguous
         status_inquiry = await tends_expert_assistant.create_observation(
             "The dog owner asks to follow up on their dog's visit, but it's not clear in which way",
         )
@@ -230,7 +230,7 @@ async def main() -> None:
         )
 
         await tends_expert_assistant.create_guideline(
-            condition="The dog owner inquires about something that has nothing to do with veterinary care for dogs",
+            condition="The dog owner inquires about something that has nothing to do with veterinary care for dogs or Tends",
             action="Kindly tell them you can only assist with dog-related veterinary inquiries - do not engage with off-topic requests.",
         )
 
